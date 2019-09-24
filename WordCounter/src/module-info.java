@@ -6,4 +6,5 @@
  *
  */
 module WordCounter {
+	requires org.jsoup;
 }
