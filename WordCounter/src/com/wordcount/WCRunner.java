@@ -11,13 +11,19 @@ public class WCRunner {
 	public static void main(String[] args) {
 		File f = new File("/home/domchap90/Documents/GYM TODO");
 		String fileAsString = new WCRunner().fileInputReader(f);
-		System.out.println("The total word count of the file is " + wordCount(fileAsString));
+		System.out.println("The total word count of the file " + f + " is " + wordCount(fileAsString));
 	}
 
 	public static int wordCount(String stringToCount) {
-		// regex expression of 1 or more non worded characters separating spaces
-		String[] stringArr = stringToCount.split("[\\W]+");
-		int count = stringArr.length;
+		String[] stringArr = stringToCount.split("[\\s]+"); // regex expression of 1 or more non worded characters
+															// separating spaces
+		int countModifier = 0;
+		for (String word : stringArr) {
+			if (word.matches("[\\W]+")) { // doesn't count words that are made up of non word characters
+				countModifier--; // deducts these words from total count
+			}
+		}
+		int count = stringArr.length + countModifier;
 		return count;
 
 	}
