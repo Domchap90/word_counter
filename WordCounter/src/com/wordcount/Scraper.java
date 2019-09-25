@@ -14,7 +14,7 @@ public class Scraper {
 		String userWebpage;
 		String htmlString;
 		do {
-			System.out.println("Please enter the url of a webpage that you would like to perform word count on: ");
+			System.out.println("Please enter the url of a webpage that you would like to perform a word count on: ");
 			userWebpage = scan.nextLine();
 		} while (validateURL(userWebpage) == false);
 
