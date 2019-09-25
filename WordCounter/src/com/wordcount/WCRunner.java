@@ -15,13 +15,16 @@ public class WCRunner {
 	}
 
 	public static int wordCount(String stringToCount) {
-		String[] stringArr = stringToCount.split("[\\s]+"); // regex expression of 1 or more non worded characters
-															// separating spaces
+		String[] stringArr = stringToCount.split("[\\s]"); // regex expression of 1 or more non worded characters
+		int counter = 0; // separating spaces
 		int countModifier = 0;
 		for (String word : stringArr) {
-			if (word.matches("[\\W]+")) { // doesn't count words that are made up of non word characters
+			if (word.matches("[\\W]")) { // doesn't count words that are made up of non word characters
 				countModifier--; // deducts these words from total count
+				continue;
 			}
+			counter++;
+			System.out.println(counter + " " + word);
 		}
 		int count = stringArr.length + countModifier;
 		return count;
